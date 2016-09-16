@@ -8,12 +8,14 @@
  * Controller of the reviewAppApp
  */
 angular.module('reviewAppApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     $scope.title = 'reviewApp'
-    $scope.
+    $scope.findPlace = function(){
+      $http.get('')
+    }
   });
