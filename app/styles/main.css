@@ -81,3 +81,11 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.code {
+  /** Contrast ratio 15.30:1 **/
+  color: lime;
+  background-color: black;
+  font-family: Monaco, 'Lucida Console', monospace;
+}
