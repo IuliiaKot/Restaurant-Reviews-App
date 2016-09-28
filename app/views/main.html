@@ -13,14 +13,37 @@
 
 <div class="container">
   <div class="row marketing">
-    <form class="form-inline" ng-submit='findPlace()'>
+    <form class="form-inline">
       <div class="col-md-6 col-xs-6 form-group">
         <label for="placeName">Name</label>
         <input type="text" class='form-control' name="name" id="placeName" value="" ng-model='placeName'>
       </div>
       <div class="col-md-6 col-xs-6 form-group">
-        <input type="submit" class="btn btn-default"name="name" value="Find">
+        <input type="submit" class="btn btn-default"name="name" value="Find" ng-click='findPlace()'>
       </div>
     </form>
   </div>
+</div>
+
+<div class="jumbotron">
+
+  <div class="row">
+    <div class="" ng-repeat="restaurant in restaurants">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">{{restaurant.restaurant.name}}</h4>
+            <h6 class="card-subtitle text-muted">{{restaurant.restaurant.cuisines}}</h6>
+          </div>
+          <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
+          <div class="card-block">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

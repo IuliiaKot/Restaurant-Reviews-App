@@ -14,8 +14,13 @@ angular.module('reviewAppApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.title = 'reviewApp'
+    $scope.restaurants = [];
+    $scope.title = 'reviewApp';
     $scope.findPlace = function(){
-      $http.get('')
-    }
-  });
+      $http.get('../data/restaurant.json').success(function(data){
+      $scope.restaurants = data.restaurants;
+        // debugger
+        console.log(data);
+      });
+    };
+  }]);
