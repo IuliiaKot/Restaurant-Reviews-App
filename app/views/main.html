@@ -9,8 +9,22 @@
 
       </div>
       <div class="col-md-6 col-xs-6 form-group">
-        <input type="submit" class="btn btn-default"name="name" value="Find" ng-click='findPlace()'>
+        <input type="submit" class="btn btn-default"name="name" value="Find"  aria-label="Find" ng-click='findPlace()'>
       </div>
+
+
+      <div class="col-md-6 col-xs-6 form-group">
+        <label for="filterByRating">Filter by Star Rating</label>
+        <select  ng-model="selectedStar" id="filterByRating">
+             <option value="all">All</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+         </select>
+      </div>
+
     </form>
   </div>
 </div>

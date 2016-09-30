@@ -21,9 +21,10 @@ angular.module('reviewAppApp')
     function fetchData(){
       $http.get('../data/restaurant.json').success(function(data){
         $scope.restaurants = data.restaurants;
+        console.log(data.restaurants);
         $scope.cuisines = (data.restaurants.map(function(restaurant){
-          return {id: restaurant.restaurant.id, name: restaurant.restaurant.cuisines}
-        }))
+          return {id: restaurant.restaurant.id, name: restaurant.restaurant.cuisines};
+        }));
         $scope.cuisines.push({id: 1, name: 'All'});
       });
     }
@@ -31,11 +32,12 @@ angular.module('reviewAppApp')
     $scope.title = 'reviewApp';
 
     $scope.findPlace = function(name){
-      var inputValue = $scope.selectedItem.name;
-      if (inputValue !== 'All'){
+      var inputValueCuisine = ($scope.selectedItem ? $scope.selectedItem.name : "");
+      var inputStar = $scope.selectedStar;
+      if (inputValueCuisine !== 'All' ){
         $http.get('../data/restaurant.json').success(function(data){
           $scope.restaurants = data.restaurants.filter((restaurant) => {
-            return restaurant.restaurant.cuisines.includes(inputValue);
+            return restaurant.restaurant.cuisines.includes(inputValueCuisine);
           });
         });
       } else {
