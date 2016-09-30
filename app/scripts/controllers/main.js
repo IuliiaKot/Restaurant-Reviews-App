@@ -15,17 +15,38 @@ angular.module('reviewAppApp')
       'Karma'
     ];
     $scope.restaurants = [];
-    $http.get('../data/restaurant.json').success(function(data){
-    $scope.restaurants = data.restaurants;
-      // debugger
-      console.log(data);
-    });
+    $scope.cuisines = [];
+    $scope.restaurantsByFilter = [];
+
+    function fetchData(){
+      $http.get('../data/restaurant.json').success(function(data){
+        $scope.restaurants = data.restaurants;
+        $scope.cuisines = (data.restaurants.map(function(restaurant){
+          return {id: restaurant.restaurant.id, name: restaurant.restaurant.cuisines}
+        }))
+        $scope.cuisines.push({id: 1, name: 'All'});
+      });
+    }
+    fetchData();
     $scope.title = 'reviewApp';
-    // $scope.findPlace = function(){
-    //   $http.get('../data/restaurant.json').success(function(data){
-    //   $scope.restaurants = data.restaurants;
-    //     // debugger
-    //     console.log(data);
-    //   });
-    // };
+
+    $scope.findPlace = function(name){
+      var inputValue = $scope.selectedItem.name;
+      if (inputValue !== 'All'){
+        $http.get('../data/restaurant.json').success(function(data){
+          $scope.restaurants = data.restaurants.filter((restaurant) => {
+            return restaurant.restaurant.cuisines.includes(inputValue);
+          });
+        });
+      } else {
+        $http.get('../data/restaurant.json').success(function(data){
+          $scope.restaurants = data.restaurants;
+          $scope.cuisines = (data.restaurants.map(function(restaurant){
+            return {id: restaurant.restaurant.id, name: restaurant.restaurant.cuisines}
+          }))
+          $scope.cuisines.push({id: 1, name: 'All'});
+        });
+      }
+      // return $scope.restaurants;
+    };
   }]);
