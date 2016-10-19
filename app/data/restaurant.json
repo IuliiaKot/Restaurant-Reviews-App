@@ -19,7 +19,7 @@
           "zipcode": "10011",
           "country_id": 216
         },
-        "cuisines": "Chinese",
+        "cuisines": "Asian",
         "average_cost_for_two": 125,
         "price_range": 4,
         "currency": "$",
@@ -61,7 +61,7 @@
         "currency": "$",
         "thumb": "https://b.zmtcdn.com/data/pictures/6/16770626/3321eb896985beff51ef076961405c6b_featured_v2.jpg",
         "user_rating": {
-          "aggregate_rating": "4.4",
+          "aggregate_rating": "3.4",
           "rating_text": "Very Good",
           "rating_color": "5BA829",
           "votes": "1060"
@@ -135,7 +135,7 @@
         "currency": "$",
         "thumb": "https://b.zmtcdn.com/data/pictures/4/16777934/ffc5c1a873a87c7cd032be73e30d2328_featured_v2.jpg",
         "user_rating": {
-          "aggregate_rating": "4.1",
+          "aggregate_rating": "5",
           "rating_text": "Very Good",
           "rating_color": "5BA829",
           "votes": "1325"
