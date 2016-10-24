@@ -6,7 +6,7 @@
         <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{restaurant.restaurant.name}}</h4>
-            <h6 class="card-subtitle text-muted">{{restaurant.restaurant.cuisines}}</h6>
+            <h6 class="card-subtitle cuisine">{{restaurant.restaurant.cuisines}}</h6>
           </div>
           <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
         </div>
@@ -26,14 +26,15 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="reviewForm" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Review Form</h4>
+          <h4 class="modal-title" id="reviewForm">Review Form</h4>
         </div>
         <div class="modal-body">
           <form>
