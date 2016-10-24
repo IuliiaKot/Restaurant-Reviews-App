@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="" ng-repeat="restaurant in restaurants">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{restaurant.restaurant.name}}</h4>
@@ -11,7 +11,7 @@
           <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-7">
           <div class="card"><div class="card-block" style="width: 18rem;">
             <ul>
               <li><b>Cost:</b> ${{restaurant.restaurant.average_cost_for_two}} for two people(approx.)</li>

@@ -1,19 +1,14 @@
 
 <div class="container">
-  <div class="row marketing">
+  <div class="box"><div class="row marketing">
     <form class="form-inline">
-      <div class="col-md-6 col-xs-6 form-group">
+      <div class="col-md-4 col-xs-12 form-group">
         <label for="filterByCuisine">Filter by cuisine</label>
         <select ng-model="selectedItem" ng-options="cuisine.name for cuisine in cuisines">
         </select>
-
-      </div>
-      <div class="col-md-6 col-xs-6 form-group">
-        <input type="submit" class="btn btn-default"name="name" value="Find"  aria-label="Find" ng-click='findPlace()'>
       </div>
 
-
-      <div class="col-md-6 col-xs-6 form-group">
+      <div class="col-md-4 col-xs-12 form-group">
         <label for="filterByRating">Filter by Star Rating</label>
         <select  ng-model="selectedStar" id="filterByRating">
              <option value="all">All</option>
@@ -24,8 +19,11 @@
              <option value="5">5</option>
          </select>
       </div>
+      <div class="col-md-4 col-xs-12 form-group tmp">
+        <input type="submit" class="btn btn-default"name="name" value="Find"  aria-label="Find" ng-click='findPlace()'>
+      </div>
     </form>
-  </div>
+  </div></div>
 </div>
 
 <div class="">

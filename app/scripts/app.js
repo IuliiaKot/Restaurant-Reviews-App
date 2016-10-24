@@ -26,7 +26,7 @@ angular
         controllerAs: 'main'
       })
       .when('/:restId/reviews', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'views/review.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })

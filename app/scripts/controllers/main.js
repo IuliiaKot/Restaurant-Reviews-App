@@ -50,7 +50,8 @@ angular.module('reviewAppApp')
       var selectedStar = parseInt($scope.selectedStar ? $scope.selectedStar : 0);
       var inputStar = $scope.selectedStar;
       if (inputValueCuisine !== 'All'){
-        if (selectedStar >=1 || selectedStar <= 5) {
+        debugger
+        if (selectedStar >=1 && selectedStar <= 5) {
           helper(inputValueCuisine, selectedStar);
         }
         else {
