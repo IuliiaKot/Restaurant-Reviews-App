@@ -35,8 +35,9 @@ angular.module('reviewAppApp')
       $http.get('../data/restaurant.json').success(function(data){
         var tmp = [];
          tmp = data.restaurants.filter((restaurant) => {
+           debugger
           if (star === 5){
-            return (restaurant.restaurant.cuisines.includes(cuisine) && (restaurant.restaurant.user_rating.aggregate_rating === star));
+            return (restaurant.restaurant.cuisines.includes(cuisine) && (restaurant.restaurant.user_rating.aggregate_rating == star));
           } else {
             return (restaurant.restaurant.cuisines.includes(cuisine) && (restaurant.restaurant.user_rating.aggregate_rating >= star && restaurant.restaurant.user_rating.aggregate_rating < (star + 1)));
           }
@@ -52,36 +53,17 @@ angular.module('reviewAppApp')
       var selectedStar = parseInt($scope.selectedStar ? $scope.selectedStar : 0);
       var inputStar = $scope.selectedStar;
       if (inputValueCuisine !== 'All'){
-        switch (selectedStar) {
-          case 5:
-            // debugger
-            helper(inputValueCuisine, selectedStar);
-            // $scope.restaurants = [];
-            break;
-          case 4:
-            helper(inputValueCuisine, selectedStar);
-            break;
-          case 3:
-            // debugger
-            helper(inputValueCuisine, selectedStar);
-            // debugger
-            break;
-          case 2:
-            helper(inputValueCuisine, selectedStar);
-            break;
-          default:
+        if (selectedStar >=1 || selectedStar <= 5) {
+          helper(inputValueCuisine, selectedStar);
+        }
+        else {
           $http.get('../data/restaurant.json').success(function(data){
             $scope.restaurants = data.restaurants.filter((restaurant) => {
               return restaurant.restaurant.cuisines.includes(inputValueCuisine);
             });
           });
-
         }
-        // $http.get('../data/restaurant.json').success(function(data){
-        //   $scope.restaurants = data.restaurants.filter((restaurant) => {
-        //     return restaurant.restaurant.cuisines.includes(inputValueCuisine);
-        //   });
-        // });
+
       }
 
       else {
