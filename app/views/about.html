@@ -9,15 +9,17 @@
             <h6 class="card-subtitle text-muted">{{restaurant.restaurant.cuisines}}</h6>
           </div>
           <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
-          <div class="card-block">
-            <ul>
-              <li>{{restaurant.restaurant.average_cost_for_two}}</li>
-              <li>{{restaurant.restaurant.location.address}}</li>
-              <li style="color: #{{restaurant.restaurant.user_rating.rating_color}}">{{restaurant.restaurant.user_rating.aggregate_rating}} {{restaurant.restaurant.user_rating.rating_text}}</li>
-            </ul>
-            <a href="{{restaurant.restaurant.menu_url}}" class="card-link">Menu</a>
-          </div>
         </div>
+      </div>
+      <div class="col-md-6">
+          <div class="card"><div class="card-block" style="width: 18rem;">
+            <ul>
+              <li><b>Cost:</b> ${{restaurant.restaurant.average_cost_for_two}} for two people(approx.)</li>
+              <li><b>Address:</b> <br>{{restaurant.restaurant.location.address}}</li>
+              <li style="color: #{{restaurant.restaurant.user_rating.rating_color}}">{{restaurant.restaurant.user_rating.aggregate_rating}} {{restaurant.restaurant.user_rating.rating_text}}</li>
+              <li>  <a href="{{restaurant.restaurant.menu_url}}" class="card-link">Menu</a></li>
+            </ul>
+          </div></div>
       </div>
     </div>
   </div>
@@ -25,15 +27,42 @@
 
   <div class="row">
     <div class="" ng-repeat="review in reviews">
-      <div class="col-md-12">
-        <div class="card">
-          <img src="{{review.review.user.profile_image}}" alt="User avatar" class="img-fluid">
-          <p><b>{{review.review.user.name}}</b></p>
-          <span><b>{{review.review.review_time_friendly}}</b></span>
+      <div class="card">
+        <div class="card-header">
+          <aside class="left-restaurant">
+            <img src="{{review.review.user.profile_image}}" alt="User picture" class="img-fluid">
+          </aside>
+          <aside class="rigth-restaurant">
+            <p><b>{{review.review.user.name}}</b></p>
+            <span>{{review.review.review_time_friendly}}</span>
+          </aside>
+        </div>
+        <div class="card-block">
           <span>RATED: <span  class="user-rating" style="background-color: #{{review.review.rating_color}};">{{review.review.rating}}</span></span>
-          <p>{{review.review.review_text}}<p/>
+          <p class="card-text">{{review.review.review_text}}<p/>
         </div>
       </div>
+
+
+      <!-- <div class="col-md-12">
+
+
+        <div class="card review">
+          <div class="">
+            <aside class="left-restaurant">
+              <img src="{{review.review.user.profile_image}}" alt="User picture" class="img-fluid">
+            </aside>
+            <aside class="rigth-restaurant">
+              <p><b>{{review.review.user.name}}</b></p>
+              <span><b>{{review.review.review_time_friendly}}</b></span>
+            </aside>
+          </div>
+          <div class="">
+            <span>RATED: <span  class="user-rating" style="background-color: #{{review.review.rating_color}};">{{review.review.rating}}</span></span>
+            <p class="card-text">{{review.review.review_text}}<p/>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 </div>
