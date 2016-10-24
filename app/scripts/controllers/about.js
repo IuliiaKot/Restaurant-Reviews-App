@@ -15,13 +15,19 @@ angular.module('reviewAppApp')
       'Karma'
     ];
     $scope.restaurants = [];
+    $scope.reviews = [];
     $scope.rest_id = $routeParams.restId;
     $http.get('../data/restaurant.json').success(function(data){
-      var tmp = [];
-       tmp = data.restaurants.filter((restaurant) => {
-         debugger
+       $scope.restaurants = data.restaurants.filter((restaurant) => {
           return (restaurant.restaurant.id == $scope.rest_id);
       });
-      $scope.restaurants = tmp;
+    });
+
+    $http.get('../data/reviews.json').success(function(data){
+      var tmp = [];
+       tmp = data.reviews.filter((review) => {
+          return (review.rest_id == $scope.rest_id);
+      });
+      $scope.reviews = tmp[0].user_reviews
     });
   }]);

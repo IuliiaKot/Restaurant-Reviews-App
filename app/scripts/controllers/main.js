@@ -35,20 +35,17 @@ angular.module('reviewAppApp')
       $http.get('../data/restaurant.json').success(function(data){
         var tmp = [];
          tmp = data.restaurants.filter((restaurant) => {
-           debugger
           if (star === 5){
             return (restaurant.restaurant.cuisines.includes(cuisine) && (restaurant.restaurant.user_rating.aggregate_rating == star));
           } else {
             return (restaurant.restaurant.cuisines.includes(cuisine) && (restaurant.restaurant.user_rating.aggregate_rating >= star && restaurant.restaurant.user_rating.aggregate_rating < (star + 1)));
           }
         });
-        debugger;
         $scope.restaurants = tmp;
       });
     }
 
     $scope.findPlace = function(name){
-      var res;
       var inputValueCuisine = ($scope.selectedItem ? $scope.selectedItem.name : "");
       var selectedStar = parseInt($scope.selectedStar ? $scope.selectedStar : 0);
       var inputStar = $scope.selectedStar;

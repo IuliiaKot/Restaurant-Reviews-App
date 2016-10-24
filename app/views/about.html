@@ -1,1 +1,39 @@
-<p>This is the about view. {{restaurants}}</p>
+
+<div class="container">
+  <div class="row">
+    <div class="" ng-repeat="restaurant in restaurants">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">{{restaurant.restaurant.name}}</h4>
+            <h6 class="card-subtitle text-muted">{{restaurant.restaurant.cuisines}}</h6>
+          </div>
+          <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
+          <div class="card-block">
+            <ul>
+              <li>{{restaurant.restaurant.average_cost_for_two}}</li>
+              <li>{{restaurant.restaurant.location.address}}</li>
+              <li style="color: #{{restaurant.restaurant.user_rating.rating_color}}">{{restaurant.restaurant.user_rating.aggregate_rating}} {{restaurant.restaurant.user_rating.rating_text}}</li>
+            </ul>
+            <a href="{{restaurant.restaurant.menu_url}}" class="card-link">Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="" ng-repeat="review in reviews">
+      <div class="col-md-12">
+        <div class="card">
+          <img src="{{review.review.user.profile_image}}" alt="User avatar" class="img-fluid">
+          <p><b>{{review.review.user.name}}</b></p>
+          <span><b>{{review.review.review_time_friendly}}</b></span>
+          <span>RATED: <span  class="user-rating" style="background-color: #{{review.review.rating_color}};">{{review.review.rating}}</span></span>
+          <p>{{review.review.review_text}}<p/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

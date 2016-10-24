@@ -89,3 +89,13 @@ body {
   background-color: black;
   font-family: Monaco, 'Lucida Console', monospace;
 }
+
+
+
+.user-rating {
+   border-radius: 5px;
+   width: 30px;
+   padding: 5px 10px;
+   color: white;
+
+}
