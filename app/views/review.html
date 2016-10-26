@@ -29,14 +29,14 @@
     </div>
   </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="reviewForm" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="review-form" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="reviewoleForm">Review Form</h4>
+          <h4 class="modal-title" id="review-form">Review Form</h4>
         </div>
         <div class="modal-body">
           <form>
@@ -79,7 +79,7 @@
           </aside>
           <aside class="rigth-restaurant">
             <p><b>{{review.review.user.name}}</b></p>
-            <span>{{review.review.review_time_friendly}}</span>
+            <span am-time-ago="review.review.timestamp ? review.review.timestamp : ''">{{review.review.review_time_friendly}}</span>
           </aside>
         </div>
         <div class="card-block">

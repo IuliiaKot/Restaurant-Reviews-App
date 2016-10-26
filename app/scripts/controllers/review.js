@@ -31,6 +31,7 @@ angular.module('reviewAppApp')
       $scope.reviews = tmp[0].user_reviews;
     });
 
+    var my_rating_color = {'4': '5BA829', '5': '305D02', '3': 'CDD614', '2': 'FFBA00', '1': "CB202D"};
     $scope.submit = function(){
       var revierName = $scope.revierName;
       var rating = $scope.reviewStar;
@@ -42,12 +43,12 @@ angular.module('reviewAppApp')
         });
         $scope.reviews = tmp[0].user_reviews;
         $scope.reviews.push({'review': {'rating': rating,
-          'rating_color':"3F7E00",
+          'rating_color': my_rating_color[rating],
           'review_text':review,
-          'review_time_friendly': Date.now(),
+          'timestamp': Date.now(),
           "user": {
             "name": revierName
-          }}})
+          }}});
         debugger;
       });
     };
