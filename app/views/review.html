@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="" ng-repeat="restaurant in restaurants">
-      <div class="col-md-5">
+      <!-- <div class="col-md-5"> -->
         <div class="card">
           <div class="card-block">
             <h4 class="card-title">{{restaurant.restaurant.name}}</h4>
@@ -10,20 +10,22 @@
           </div>
           <img src="{{restaurant.restaurant.featured_image}}" alt="Card image" class="img-fluid">
         </div>
-      </div>
-      <div class="col-md-7">
-          <div class="card"><div class="card-block" style="width: 18rem;">
-            <ul>
-              <li><b>Cost:</b> ${{restaurant.restaurant.average_cost_for_two}} for two people(approx.)</li>
-              <li><b>Address:</b> <br>{{restaurant.restaurant.location.address}}</li>
-              <li style="color: #{{restaurant.restaurant.user_rating.rating_color}}">{{restaurant.restaurant.user_rating.aggregate_rating}} {{restaurant.restaurant.user_rating.rating_text}}</li>
-              <li>  <a href="{{restaurant.restaurant.menu_url}}" class="card-link">Menu</a></li>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                Write review
-              </button>
-            </ul>
-          </div></div>
-      </div>
+      <!-- </div> -->
+      <!-- <div class="col-md-7"> -->
+          <div class="card">
+            <div class="card-block" style="width: 18rem;">
+              <ul>
+                <li><b>Cost:</b> ${{restaurant.restaurant.average_cost_for_two}} for two people(approx.)</li>
+                <li><b>Address:</b> <br>{{restaurant.restaurant.location.address}}</li>
+                <li style="color: #{{restaurant.restaurant.user_rating.rating_color}}">{{restaurant.restaurant.user_rating.aggregate_rating}} {{restaurant.restaurant.user_rating.rating_text}}</li>
+                <li>  <a href="{{restaurant.restaurant.menu_url}}" class="card-link">Menu</a></li>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                  Write review
+                </button>
+              </ul>
+          </div>
+        </div>
+      <!-- </div> -->
     </div>
   </div>
 
@@ -34,17 +36,17 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="reviewForm">Review Form</h4>
+          <h4 class="modal-title" id="reviewoleForm">Review Form</h4>
         </div>
         <div class="modal-body">
           <form>
             <div class="form-group">
               <label for="revierName">Name</label>
-              <input type="text" class="form-control" id="revierName" placeholder="Julia">
+              <input type="text" class="form-control" id="revierName" ng-model="revierName" placeholder="Julia" required="true">
             </div>
             <div class="form-group">
               <label for="exampleSelect1">Example select</label>
-              <select class="form-control" id="exampleSelect1">
+              <select class="form-control" id="exampleSelect1" ng-model="reviewStar">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -54,13 +56,13 @@
             </div>
             <div class="form-group">
               <label for="review">Review</label>
-              <textarea class="form-control" id="review" rows="3"></textarea>
+              <textarea class="form-control" id="review" rows="3" ng-model="review" required="true"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" arai-label="Submit Review" ng-click='submit()'>Submit</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" arai-label="Close Window" data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>

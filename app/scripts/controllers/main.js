@@ -45,12 +45,11 @@ angular.module('reviewAppApp')
       });
     }
 
-    $scope.findPlace = function(name){
+    $scope.findPlace = function(){
       var inputValueCuisine = ($scope.selectedItem ? $scope.selectedItem.name : "");
       var selectedStar = parseInt($scope.selectedStar ? $scope.selectedStar : 0);
       var inputStar = $scope.selectedStar;
       if (inputValueCuisine !== 'All'){
-        debugger
         if (selectedStar >=1 && selectedStar <= 5) {
           helper(inputValueCuisine, selectedStar);
         }
